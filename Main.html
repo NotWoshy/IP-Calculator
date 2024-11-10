@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora IP</title>
     <link rel="stylesheet" href="Style.css">
-    <link rel="script" href="Behavior.js">
+    <script src="Behavior.js"></script>
 </head>
 <body>
     <div class="calculator-container">
-        <h2>Calculadora IP Mejorada</h2>
+        <h2>Calculadora IP</h2>
         <div class="input-group">
             <label for="ip-address">Dirección IP (Host o Red)</label>
             <input type="text" id="ip-address" placeholder="Ej. 192.168.1.1">
         </div>
         <div class="input-group">
-            <label for="netmask">Netmask (Ej. 8)</label>
+            <label for="netmask">Máscara de red (Ej. 8)</label>
             <input type="number" id="netmask" min="1" max="32" placeholder="Ej. 24">
         </div>
         <div class="input-group">
-            <label for="move-netmask">Netmask para subredes/superredes</label>
+            <label for="move-netmask">Máscara para subredes (Opcional)</label>
             <input type="number" id="move-netmask" min="1" max="32" placeholder="Ej. 9">
         </div>
         <button onclick="calculateIP()">Calcular</button>
