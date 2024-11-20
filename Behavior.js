@@ -16,7 +16,7 @@ function calculateIP() {
 
     const mask = (0xFFFFFFFF << (32 - netmask)) >>> 0;
     const ipInt = ipParts.reduce((acc, part) => (acc << 8) | part, 0) >>> 0;
-    const networkInt = ipInt & mask;
+    const networkInt = ipInt & mask; // Bits a usar
     const networkParts = [
         (networkInt >> 24) & 0xFF,
         (networkInt >> 16) & 0xFF,
@@ -24,7 +24,7 @@ function calculateIP() {
         networkInt & 0xFF
     ];
 
-    const broadcastInt = networkInt | (~mask >>> 0);
+    const broadcastInt = networkInt | (~mask >>> 0); //Complemento de la máscara (0's)
     const firstHostInt = networkInt + 1;
     const lastHostInt = broadcastInt - 1;
     const firstHostParts = [
@@ -39,6 +39,34 @@ function calculateIP() {
         (lastHostInt >> 8) & 0xFF,
         lastHostInt & 0xFF
     ];
+
+    function maskToString(mask) {
+        return [
+            (mask >> 24) & 0xFF,
+            (mask >> 16) & 0xFF,
+            (mask >> 8) & 0xFF,
+            mask & 0xFF
+        ].join('.');
+    }
+    
+    function broadcastToString(broadcastInt) {
+        return [
+            (broadcastInt >> 24) & 0xFF,
+            (broadcastInt >> 16) & 0xFF,
+            (broadcastInt >> 8) & 0xFF,
+            broadcastInt & 0xFF
+        ].join('.');
+    }
+    
+    function intToIP(int) {
+        return [
+            (int >> 24) & 0xFF,
+            (int >> 16) & 0xFF,
+            (int >> 8) & 0xFF,
+            int & 0xFF
+        ].join('.');
+    }
+    
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
@@ -74,29 +102,3 @@ function calculateIP() {
     }
 }
 
-function maskToString(mask) {
-    return [
-        (mask >> 24) & 0xFF,
-        (mask >> 16) & 0xFF,
-        (mask >> 8) & 0xFF,
-        mask & 0xFF
-    ].join('.');
-}
-
-function broadcastToString(broadcastInt) {
-    return [
-        (broadcastInt >> 24) & 0xFF,
-        (broadcastInt >> 16) & 0xFF,
-        (broadcastInt >> 8) & 0xFF,
-        broadcastInt & 0xFF
-    ].join('.');
-}
-
-function intToIP(int) {
-    return [
-        (int >> 24) & 0xFF,
-        (int >> 16) & 0xFF,
-        (int >> 8) & 0xFF,
-        int & 0xFF
-    ].join('.');
-}
