@@ -4,7 +4,7 @@ function calculateIP() {
     const subnetMask = parseInt(document.getElementById('subnet-mask').value, 10); // Nuevo campo para subneteo
 
     if (!ipAddress || isNaN(netmask) || subnetMask < netmask || subnetMask > 32) {
-        alert('Por favor, ingresa una dirección IP válida y máscaras válidas.');
+        alert('Ingresa una dirección IP válida y máscaras válidas.');
         return;
     }
 
