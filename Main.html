@@ -8,22 +8,30 @@
     <script src="Behavior.js"></script>
 </head>
 <body>
-    <div class="calculator-container">
-        <h2>Calculadora IP</h2>
-        <div class="input-group">
-            <label for="ip-address">Dirección IP (Host o Red)</label>
-            <input type="text" id="ip-address" placeholder="Ej. 192.168.1.1">
+    <div class="principal-container">
+        <div>
+            <nav>
+            <img src="escudoIPN.png" alt="Escudo IPN" width="120rem">
+            </nav>
         </div>
-        <div class="input-group">
-            <label for="netmask">Máscara de red (/)</label>
-            <input type="number" id="netmask" min="1" max="32" placeholder="Ej. 24">
+        <div class="calculator-container">
+            <h2>Calculadora IP</h2>
+            <div class="input-group">
+                <label for="ip-address">Dirección IP (Host o Red)</label> <!--Espacio para entrada de Dirección IP-->
+                <input type="text" id="ip-address" placeholder="Ej. 192.168.1.1">
+            </div>
+            <div class="input-group">
+                <label for="netmask">Máscara de red (/)</label> <!--Espacio para entrada de la mascara de red-->
+                <input type="number" id="netmask" min="1" max="32" placeholder="Ej. 24">
+            </div>
+            <div class="input-group">
+                <label for="move-netmask">Máscara para subredes (Opcional)</label> <!--Espacio para entrada de mascara de subredes para separar la red principal-->
+                <input type="number" id="subnet-mask" min="1" max="32" placeholder="Ej. 30">
+            </div>
+            <button onclick="calculateIP()">Calcular</button>
+            <div id="result"></div>
         </div>
-        <div class="input-group">
-            <label for="move-netmask">Máscara para subredes (Opcional)</label>
-            <input type="number" id="subnet-mask" min="1" max="32" placeholder="Ej. 9">
-        </div>
-        <button onclick="calculateIP()">Calcular</button>
-        <div id="result"></div>
+        <img src="escudoESCOM.png" alt="Escudo ESCOM" width="130rem" height="100rem">
     </div>
 </body>
 </html>
